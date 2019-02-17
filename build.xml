@@ -4,11 +4,11 @@
     <property name="version"    value="1.1.0" />
     <property name="stability"  value="stable" />
     <property name="releasenotes" value="" />
-    <property name="tarfile"     value="flask.tar.bz2" />
+    <property name="tarfile"     value="flask-helloworld.tar.bz2" />
     <property name="output"    value="dist" />
     <property name="tardist"    value="${output}/${tarfile}" />
     <property name="tests.dir" value="test" />
-    <fileset id="flask.tar.bz2" dir=".">
+    <fileset id="flask-helloworld.tar.bz2" dir=".">
         <include name="**"/>
         <exclude name=".git/**"/>
     </fileset>
@@ -27,7 +27,7 @@
         <echo message="Creating distribution tar for ${phing.project.name} ${version} ${tardist}"/>
         <delete file="${tardist}" failonerror="false" />
         <tar destfile="${tardist}" compression="bzip2" excludes=".git">
-            <fileset refid="flask.tar.bz2"/>
+            <fileset refid="flask-helloworld.tar.bz2"/>
         </tar>
     </target>
 </project>

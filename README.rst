@@ -39,3 +39,29 @@ Step 2: Test the App Locally
 
 3. Press `CTRL-C` to stop the process.
 
+
+
+Step 3: Deploy by Ansible
+----------------------------
+
+1. ant build
+
+    ant build
+
+2. init target machine
+
+
+    cd playbooks
+    cd samples
+    
+    ansible-playbook samples/flask.yml -i vagrant  --list-host   # You will see a machine list
+
+    ansible-playbook setups/00-setup.yml -i vagrant  # init enviroments
+    ansible-playbook samples/26-python3.yml -i vagrant  # install python3 in the machines
+
+    ansible-playbook samples/flask.yml -i vagrant  # deploy flask
+
+
+   
+
+3. 
