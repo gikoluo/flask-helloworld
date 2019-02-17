@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="flask" default="build">
+    <property name="version-m"  value="1.1" />
+    <property name="version"    value="1.1.0" />
+    <property name="stability"  value="stable" />
+    <property name="releasenotes" value="" />
+    <property name="tarfile"     value="flask.tar.bz2" />
+    <property name="output"    value="dist" />
+    <property name="tardist"    value="${output}/${tarfile}" />
+    <property name="tests.dir" value="test" />
+    <fileset id="flask.tar.bz2" dir=".">
+        <include name="**"/>
+        <exclude name=".git/**"/>
+    </fileset>
+    <target name="build" depends="init, compress">
+        <echo>
+            ${message}
+        </echo>
+    </target>
+
+    <target name="init">
+        <mkdir dir="${output}" />
+    </target>
+    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    <target name="compress" description="Create tar file for release">
+        <echo message="Creating distribution tar for ${phing.project.name} ${version} ${tardist}"/>
+        <delete file="${tardist}" failonerror="false" />
+        <tar destfile="${tardist}" compression="bzip2" excludes=".git">
+            <fileset refid="flask.tar.bz2"/>
+        </tar>
+    </target>
+</project>

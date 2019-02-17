@@ -11,8 +11,8 @@ def utils = new Utilities(steps)
 
 
 //--Part2. Get the variables from Jenkins job settings.
-def projectName = env.PROJECT_NAME   //Project name, Usually it is the name of jenkins project folder name.
-def serviceName = env.SERVICE_NAME   //Service name. Usually it is the process name running in the server.
+def projectName = "flask-example"   //Project name, Usually it is the name of jenkins project folder name.
+def serviceName = "flask-example"   //Service name. Usually it is the process name running in the server.
 def buildJob    = env.BUILD_JOB      //Build job in jenkins. 
 def targetFile = env.TARGET_FILE     //Build target.
 def deployConfig = env.DEPLOY_CONFIG     //Automatic deploy Config
@@ -20,6 +20,12 @@ def autoBuild  = true               //set it to true if you like to build the bu
 def playbook = "";                   //the playbook script file to deploy target, default is "${projectName}/${serviceName}"
 def tags = ["update"]
 
+
+#PROJECT_NAME=projectname #项目代称
+#SERVICE_NAME=servicename  #服务代称
+#BUILD_JOB=${PROJECT_NAME}/builds/api_all  #从哪一个编译工程中获得二进制包
+#TARGET_FILE=theFullPathOfTarget.tar.gz #二进制包的路径
+#AUTO_BUILD=true  #是否每次发布时都自动执行编译。默认True。
 
 
 if(env.PLAYBOOK) {
